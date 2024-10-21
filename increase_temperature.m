@@ -1,8 +1,8 @@
-function raw(app)
+function increase_temperature(app)
 start_temp=48;       %write starting temperature can be larger or smaller than end_temp
 end_temp=61;         %write ending temperature can be larger or smalller than start_temp
 step_temp=0.2;        %write in positive always
-step_dur = 1;        %write duration between each step in seconds
+step_dur = 2;        %write duration between each step in seconds
 
 
 %initialization
