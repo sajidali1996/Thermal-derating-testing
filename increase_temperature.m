@@ -16,7 +16,7 @@ function increase_temperature(app)
     L=length(start_temp:step_temp:end_temp);
     
     %enable thermal derating
-    app.inverterObj.send('{"Pinv_DERATE_ENABLE":true}');
+    app.inverterObj.send('{"Pinv_DERATE_ENABLE":1}');
     
     
     %loop for repeating the test
