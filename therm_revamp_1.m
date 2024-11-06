@@ -1,8 +1,8 @@
-function increase_temperature(app)
+function therm_revamp_1(app)
     start_temp=48;       %write starting temperature can be larger or smaller than end_temp
-    end_temp=60.6;         %write ending temperature can be larger or smalller than start_temp
+    end_temp=50.6;         %write ending temperature can be larger or smalller than start_temp
     step_temp=0.2;        %write in positive always
-    step_dur = 5;        %write duration between each step in seconds
+    step_dur = 2;        %write duration between each step in seconds
     
     
     %initialization
@@ -16,7 +16,8 @@ function increase_temperature(app)
     L=length(start_temp:step_temp:end_temp);
     
     %enable thermal derating
-    app.inverterObj.send('{"Pinv_DERATE_ENABLE":1}');
+    app.inverterObj.send('{"PINV_DERATE_FLAG":1,"THERMAL_DERATE_FLAG":1}');  %1=enable   -1=disable
+    
     pause(1)
     
     %loop for repeating the test
@@ -82,8 +83,7 @@ function increase_temperature(app)
     %set temperature back to default
     pause(1)
     app.inverterObj.send('{"T_AMB":40}');
-    disp("Endo of Test")
-    
+    disp("End of Test")
+
 
 end
-
